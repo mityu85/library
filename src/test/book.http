@@ -1,3 +1,43 @@
 ###
 GET http://localhost:8080/api/library
 Accept: application/json
+
+###
+GET http://localhost:8080/api/library/1
+Accept: application/json
+
+###
+POST http://localhost:8080/api/library
+Content-Type: application/json
+Accept: application/json
+
+{
+  "author": "Stephen King",
+  "title": "Shining",
+  "rentalDate": "2021-02-28"
+}
+
+### Validation
+POST http://localhost:8080/api/library
+Content-Type: application/json
+Accept: application/json
+
+{
+  "author": "",
+  "title": "Shining",
+  "rentalDate": "2021-02-28"
+}
+
+###
+PUT http://localhost:8080/api/library/4
+Content-Type: application/json
+Accept: application/json
+
+{
+"author": "Stephen King",
+"title": "Christine",
+"rentalDate": "2021-05-12"
+}
+
+###
+DELETE http://localhost:8080/api/library/4
