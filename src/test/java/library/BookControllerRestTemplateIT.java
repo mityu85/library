@@ -40,4 +40,39 @@ public class BookControllerRestTemplateIT {
                 .extracting(BookDto::getTitle)
                 .containsExactly("Shining", "Christine");
     }
+
+    @Test
+    public void testFindBookById() {
+        BookDto bookDto = template.postForObject("/api/library",
+                new CreateBookCommand("Stephen King", "Shining", "2021-06-12"), BookDto.class);
+
+        Long id = bookDto.getId();
+        BookDto book = template.exchange("/api/library/" + id,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<BookDto>() {})
+                .getBody();
+
+        assertThat(book)
+                .extracting(BookDto::getTitle)
+                .isEqualTo("Shining");
+    }
+
+    @Test
+    public void testUpdateBook() {
+        BookDto bookDto = template.postForObject("/api/library",
+                new CreateBookCommand("Stephen King", "Shining", "2021-06-12"), BookDto.class);
+
+        Long id = bookDto.getId();
+        template.put("/api/library/" + id,
+                new UpdateBookCommand("Stephen King", "Christine", "2021-06-12"));
+
+        BookDto anotherBook = template.exchange("/api/library/" + id,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<BookDto>() {})
+                .getBody();
+
+        assertEquals("Christine", anotherBook.getTitle());
+    }
 }

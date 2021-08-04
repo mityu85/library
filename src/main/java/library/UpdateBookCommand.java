@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class UpdateBookCommand {
 
     @NotBlank(message = "author cannot be empty")
