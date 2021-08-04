@@ -23,6 +23,10 @@ public class Book {
     @Column(name = "rental_date")
     private String rentalDate;
 
+    @ManyToOne
+    @JoinColumn(name = "reader_id")
+    private Reader reader;
+
     public Book(String author, String title, String rentalDate) {
         this.author = author;
         this.title = title;
