@@ -29,12 +29,12 @@ Accept: application/json
 }
 
 ### Lend book
-POST http://localhost:8080/api/books/7/reader/3
+POST http://localhost:8080/api/books/1/reader/2
 Content-Type: application/json
 Accept: application/json
 
 ### lend book update
-PUT http://localhost:8080/api/books/7/reader/3
+PUT http://localhost:8080/api/books/1/reader/2
 Content-Type: application/json
 Accept: application/json
 
