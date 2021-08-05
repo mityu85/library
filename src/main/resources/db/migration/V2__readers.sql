@@ -1,0 +1,1 @@
+create table readers(id bigint auto_increment, name varchar(255), address varchar(255), primary key(id));

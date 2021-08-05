@@ -1,5 +1,7 @@
-package library;
+package library.book;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import library.reader.Reader;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "reader_id")
+    @JsonBackReference
     private Reader reader;
 
     public Book(String author, String title, String rentalDate) {

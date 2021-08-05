@@ -1,1 +1,1 @@
-create table books(id bigint auto_increment, author varchar(255), title varchar(255), rental_date date, primary key(id));
+create table books(id bigint auto_increment, author varchar(255), title varchar(255), rental_date date, reader_id bigint, primary key(id));

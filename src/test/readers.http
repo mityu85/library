@@ -1,0 +1,40 @@
+###
+GET http://localhost:8080/api/readers
+Accept: application/json
+
+###
+GET http://localhost:8080/api/readers/3
+Accept: application/json
+
+### create reader
+POST http://localhost:8080/api/readers
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "John Doe",
+  "address": "Rodeo Dr. 28987"
+}
+
+### Validation
+POST http://localhost:8080/api/readers
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "",
+  "address": "Rodeo Dr. 28987"
+}
+
+###
+PUT http://localhost:8080/api/readers/3
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Jane Doe",
+  "address": "Rodeo Dr. 28987"
+}
+
+###
+DELETE http://localhost:8080/api/readers/7

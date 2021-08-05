@@ -1,4 +1,4 @@
-package library;
+package library.reader;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

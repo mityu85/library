@@ -1,5 +1,6 @@
-package library;
+package library.book;
 
+import library.reader.Reader;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +14,5 @@ public class BookDto {
     private String author;
     private String title;
     private String rentalDate;
+    private Reader reader;
 }
